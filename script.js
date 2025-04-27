@@ -43,6 +43,6 @@ books.addEventListener('click', (e) => {
     if(btn.className === 'editBtn'){
         book.setEdited(!foundBook.isEdited);
         library.displayCreatedBook(foundBook);
-        library.iterateThroughArray();
+        library.changeBookDataOnEditBtn(foundBook);
     }
 });

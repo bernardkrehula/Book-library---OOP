@@ -35,9 +35,19 @@ class BookLibrary {
     iterateThroughArray(){
         books.innerHTML = '';
         this.booksLibrary.forEach((book) => {
-            console.log(book)
             this.displayCreatedBook(book);
         })
+    }
+    changeBookDataOnEditBtn(foundBook){
+        let title = document.querySelector('.editTitle').value;
+        let author = document.querySelector('.editAuthor').value;
+        let pages = document.querySelector('.editPages').value;
+    
+        foundBook.title = title;
+        foundBook.author = author;
+        foundBook.pages = pages;
+  
+        this.iterateThroughArray();
     }
     cleanFormInputs(){
         title.value = '';
