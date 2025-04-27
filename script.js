@@ -5,6 +5,7 @@ const title = document.querySelector('.bookTitle');
 const author = document.querySelector('.author');
 const pages = document.querySelector('.pages');
 const checkBox = document.querySelector('.checkBox');
+const books = document.querySelector('.books');
 
 let book;
 
@@ -15,6 +16,32 @@ newBookBtn.addEventListener('click', () => {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let id = crypto.randomUUID();
+    let isEdited;
 
-    book = new NewBook(id, title.value, author.value, pages.value, checkBox.value);
+    book = new NewBook(id, title.value, author.value, pages.value, checkBox.checked, isEdited);
+    library.pushBookInLibrary();
+    form.style.display = 'none';
+    library.displayCreatedBook(book);
+    // library.displayCreatedBook();
 })
+
+books.addEventListener('click', (e) => {
+    e.preventDefault();
+    let formId = e.target.closest('form').id;
+    let btn = e.target.closest('button');
+    let foundBook = library.findClickedBook(formId);
+
+    if(btn.className === 'isRead'){
+        library.returnIsReadFalse(foundBook);
+        // books.removeChild(foundBook.id);
+        library.displayCreatedBook(foundBook); 
+    }
+    if(btn.className === 'delete'){
+
+    }
+    if(btn.className === 'editBtn'){
+        book.setEdited(!foundBook.isEdited);
+        library.displayCreatedBook(foundBook);
+        books.removeChild(foundBook.id);
+    }
+});
