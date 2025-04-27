@@ -29,8 +29,13 @@ class BookLibrary {
             bookId.isRead = true;
         }
     }
+    iterateThroughArray(){
+        books.innerHTML = '';
+        this.booksLibrary.forEach((book) => {
+            this.displayCreatedBook(book);
+        })
+    }
     displayCreatedBook(book){
-        console.log(book.isEdited)
         let html = book.isEdited ? `<form class="addedBook" id="${book.id}">
         <input type="text" class="editTitle" value="${book.title}">
                     <input type="text" class="editAuthor" value="${book.author}">

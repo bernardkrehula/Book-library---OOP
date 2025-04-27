@@ -22,7 +22,6 @@ form.addEventListener('submit', (event) => {
     library.pushBookInLibrary();
     form.style.display = 'none';
     library.displayCreatedBook(book);
-    // library.displayCreatedBook();
 })
 
 books.addEventListener('click', (e) => {
@@ -33,8 +32,8 @@ books.addEventListener('click', (e) => {
 
     if(btn.className === 'isRead'){
         library.returnIsReadFalse(foundBook);
-        // books.removeChild(foundBook.id);
         library.displayCreatedBook(foundBook); 
+        library.iterateThroughArray();
     }
     if(btn.className === 'delete'){
 
@@ -42,6 +41,6 @@ books.addEventListener('click', (e) => {
     if(btn.className === 'editBtn'){
         book.setEdited(!foundBook.isEdited);
         library.displayCreatedBook(foundBook);
-        books.removeChild(foundBook.id);
+        library.iterateThroughArray();
     }
 });
