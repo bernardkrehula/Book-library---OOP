@@ -36,7 +36,8 @@ books.addEventListener('click', (e) => {
         library.iterateThroughArray();
     }
     if(btn.className === 'delete'){
-
+        library.removeBookFromArray(foundBook.id);
+        library.iterateThroughArray();
     }
     if(btn.className === 'editBtn'){
         book.setEdited(!foundBook.isEdited);

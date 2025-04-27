@@ -29,9 +29,13 @@ class BookLibrary {
             bookId.isRead = true;
         }
     }
+    removeBookFromArray(bookId){
+        this.booksLibrary = this.booksLibrary.filter(book => book.id != bookId);
+    }
     iterateThroughArray(){
         books.innerHTML = '';
         this.booksLibrary.forEach((book) => {
+            console.log(book)
             this.displayCreatedBook(book);
         })
     }
