@@ -39,6 +39,12 @@ class BookLibrary {
             this.displayCreatedBook(book);
         })
     }
+    cleanFormInputs(){
+        title.value = '';
+        author.value = '';
+        pages.value = '';
+        checkBox.checked = '';
+    }
     displayCreatedBook(book){
         let html = book.isEdited ? `<form class="addedBook" id="${book.id}">
         <input type="text" class="editTitle" value="${book.title}">

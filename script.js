@@ -21,6 +21,7 @@ form.addEventListener('submit', (event) => {
     book = new NewBook(id, title.value, author.value, pages.value, checkBox.checked, isEdited);
     library.pushBookInLibrary();
     form.style.display = 'none';
+    library.cleanFormInputs();
     library.displayCreatedBook(book);
 })
 
